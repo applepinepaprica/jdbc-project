@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProjectController {
 
+	private final LineService lineService;
+
 	@Autowired
-	private LineService lineService;
+	public ProjectController(LineService lineService) {
+		this.lineService = lineService;
+	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String home(@RequestParam(required = false)Integer id,

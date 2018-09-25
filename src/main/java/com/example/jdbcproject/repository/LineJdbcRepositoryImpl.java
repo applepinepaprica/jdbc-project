@@ -12,8 +12,12 @@ import java.util.List;
 @Repository
 public class LineJdbcRepositoryImpl implements LineRepository {
 
+    private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public LineJdbcRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     private RowMapper<Line> RM = (ResultSet rs, int rownumber) -> {
         Line l = new Line();

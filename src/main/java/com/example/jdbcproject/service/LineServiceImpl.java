@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class LineServiceImpl implements LineService {
 
+	private final LineRepository lineRepository;
+
 	@Autowired
-	private LineRepository lineRepository;
+	public LineServiceImpl(LineRepository lineRepository) {
+		this.lineRepository = lineRepository;
+	}
 
 	public List<Line> getLines(Integer id, String value) {
     	/*Фильтр устроен примерно так, как в ЭК, т е если в запросе есть id,
