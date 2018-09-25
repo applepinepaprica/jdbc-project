@@ -5,12 +5,7 @@ public class Line {
 	private Integer id;
 	private String value;
 
-	public Line () {
-	}
-
-	public Line (int id, String value) {
-		this.id = id;
-		this.value = value;
+	Line () {
 	}
 
 	public void setId(int id) {
