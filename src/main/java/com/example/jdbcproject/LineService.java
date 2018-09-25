@@ -21,16 +21,13 @@ public class LineService {
 		String que1 = "SELECT * FROM line";
 		String que2 = " ORDER BY id DESC";
 
-		RowMapper RM = new RowMapper<Line>(){  
-		    @Override  
-		    public Line mapRow(ResultSet rs, int rownumber) throws SQLException {  
+		RowMapper RM = (ResultSet rs, int rownumber) -> {
 		        Line l = new Line();
-		        l.setId(rs.getInt(1));
-		        l.setValue(rs.getString(2)); 
+		        l.setId(rs.getInt("id"));
+		        l.setValue(rs.getString("value"));
 		        lines.add(l);
 		        return l;
-		    }
-    	};  
+		    };
 
     	/*Фильтр устроен примерно так, как в ЭК, т е если в запросе есть id,
     	то программа ищет строку с этим id, не обращая внимания на другие условия.*/
