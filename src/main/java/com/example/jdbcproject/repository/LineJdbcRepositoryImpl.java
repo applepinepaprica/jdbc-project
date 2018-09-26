@@ -33,12 +33,14 @@ public class LineJdbcRepositoryImpl implements LineRepository {
 
     @Override
     public List<Line> getLineById(int id) {
-        return jdbcTemplate.query(buildQuery(" WHERE id = (?)"), new Object[] { id }, RM);
+        String query = buildQuery(" WHERE id = (?)");
+        return jdbcTemplate.query(query, new Object[] { id }, RM);
     }
 
     @Override
     public List<Line> getLineByValue(String value) {
-        return jdbcTemplate.query(buildQuery(" WHERE INSTR(value, ?) > 0"), new Object[] { value }, RM);
+        String query = buildQuery(" WHERE INSTR(value, ?) > 0");
+        return jdbcTemplate.query(query, new Object[] { value }, RM);
     }
 
     private String buildQuery(String str) {
