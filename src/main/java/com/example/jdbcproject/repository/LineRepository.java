@@ -1,6 +1,6 @@
 package com.example.jdbcproject.repository;
 
-import com.example.jdbcproject.Line;
+import com.example.jdbcproject.model.Line;
 import java.util.List;
 
 public interface LineRepository {

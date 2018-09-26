@@ -1,5 +1,6 @@
-package com.example.jdbcproject;
+package com.example.jdbcproject.controller;
 
+import com.example.jdbcproject.model.Line;
 import com.example.jdbcproject.service.LineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

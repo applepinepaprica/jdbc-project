@@ -1,4 +1,4 @@
-package com.example.jdbcproject;
+package com.example.jdbcproject.model;
 
 public class Line {
 	
