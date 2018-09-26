@@ -30,8 +30,14 @@ public class ProjectController {
 		return "index";
 	}
 
-	@RequestMapping(value = { "/addLine" }, method = RequestMethod.POST)
-	public String addLine(Line line, Model model) {
+	@RequestMapping(value = { "/add_line" }, method = RequestMethod.GET)
+	public String addLineGet(Model model) {
+		model.addAttribute("line", new Line());
+		return "add_line";
+	}
+
+	@RequestMapping(value = { "/add_line" }, method = RequestMethod.POST)
+	public String addLinePost(Line line, Model model) {
 		lineService.insertLine(line);
 		return "redirect:/";
 	}	
