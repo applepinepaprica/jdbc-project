@@ -8,4 +8,5 @@ public interface LineRepository {
     List<Line> getLineById(int id);
     List<Line> getLineByValue(String value);
     void insertLine(Line line);
+    void deleteLine(Line line);
 }

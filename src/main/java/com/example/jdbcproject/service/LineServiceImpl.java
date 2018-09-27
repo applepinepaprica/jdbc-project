@@ -52,4 +52,10 @@ public class LineServiceImpl implements LineService {
 	public void insertLine(Line line) {
 		lineRepository.insertLine(line);
 	}
+
+	public void deleteLines(List<Line> lines){
+		for (Line line: lines) {
+			lineRepository.deleteLine(line);
+		}
+	}
 }

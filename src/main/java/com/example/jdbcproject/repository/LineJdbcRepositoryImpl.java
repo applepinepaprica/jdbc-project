@@ -53,4 +53,9 @@ public class LineJdbcRepositoryImpl implements LineRepository {
     public void insertLine(Line line) {
         jdbcTemplate.update("INSERT INTO line(value) VALUES (?)", line.getValue());
     }
+
+    @Override
+    public void deleteLine (Line line) {
+        jdbcTemplate.update("DELETE FROM line WHERE id=(?) AND value=(?)", new Object[] {line.getId(), line.getValue()});
+    }
 }

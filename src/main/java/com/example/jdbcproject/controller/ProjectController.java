@@ -3,6 +3,8 @@ package com.example.jdbcproject.controller;
 import com.example.jdbcproject.model.Line;
 import com.example.jdbcproject.service.LineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -44,11 +46,8 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = { "/delete_checked" }, method = RequestMethod.POST)
-	public String deleteLines(@RequestBody List<Line> lines, Model model) {
-		for (Line l : lines) {
-			System.out.println(l.getId());
-			System.out.println(l.getValue());
-		}
-		return "redirect:/";
+	public ResponseEntity deleteLines(@RequestBody List<Line> lines, Model model) {
+		lineService.deleteLines(lines);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 }

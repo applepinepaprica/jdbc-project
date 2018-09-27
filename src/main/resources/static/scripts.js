@@ -19,7 +19,13 @@ $(document).ready(function(){
             url: '/delete_checked',
             data: JSON.stringify(data),
             dataType: 'json',
-            timeout: 600000
+            timeout: 600000,
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert('error');
+            }
         });
     });
 });
