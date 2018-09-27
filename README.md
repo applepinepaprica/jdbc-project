@@ -10,6 +10,7 @@
 * jQuery
 * MySQL
 * Thymeleaf
+* Flyway
 
 ### Запуск проекта
 
