@@ -7,6 +7,7 @@
 * Java 8
 * Spring Boot
 * JDBC
+* jQuery
 * MySQL
 * Thymeleaf
 
