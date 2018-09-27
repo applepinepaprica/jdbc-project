@@ -12,9 +12,9 @@
 * Thymeleaf
 * Flyway
 
-### Запуск проекта
+### Запуск проекта:
 
-1. Для приложения необходима бд MySQL. Ее данные нужно указать в application.properties: 
+1. Для приложения необходима БД MySQL. Ее данные нужно указать в application.properties:
 ~~~~
 spring.datasource.url=jdbc:mysql://localhost:3306/DB?useUnicode=yes&characterEncoding=UTF-8
 spring.datasource.username=root
