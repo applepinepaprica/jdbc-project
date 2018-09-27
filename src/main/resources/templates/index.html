@@ -45,7 +45,7 @@
 			<tr th:each="line : ${lines}">
 				<td><input type="checkbox" name="checked" value="true"></td>
 				<td scope="row" th:text="${line.id}" ></td>
-				<td th:text="${line.value}"></td>
+				<td th:text="${line.value}" class="line_value"></td>
 			</tr>
 		</tbody>
 	</table>

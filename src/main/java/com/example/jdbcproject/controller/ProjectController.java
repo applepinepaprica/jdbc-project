@@ -50,4 +50,10 @@ public class ProjectController {
 		lineService.deleteLines(lines);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+
+	@RequestMapping(value = { "/update_line" }, method = RequestMethod.POST)
+	public ResponseEntity updateLine(@RequestBody Line line, Model model) {
+		lineService.updateLine(line);
+		return new ResponseEntity(HttpStatus.OK);
+	}
 }

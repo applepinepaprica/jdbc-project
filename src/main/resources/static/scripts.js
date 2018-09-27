@@ -28,4 +28,44 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('.line_value').dblclick(dblcl);
+
+    function dblcl() {
+        $(this).off("dblclick");
+        input = $("<input type=\"text\" value=\"" + $(this).text() + "\" class=\"input_line\" />");
+        $(this).text("");
+        $(this).append(input);
+
+        $('.input_line').on("keyup", onEnter);
+    }
+
+    function onEnter(e) {
+        if (e.keyCode === 13) {
+            var text = $(this).val();
+
+            var line = {
+                id: $(this).parent().parent().find('td:eq(1)').text(),
+                value: text
+            };
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: '/update_line',
+                data: JSON.stringify(line),
+                dataType: 'json',
+                timeout: 600000,
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (e) {
+                    alert('error');
+                }
+            });
+
+            $(this).parent().on("dblclick", dblcl);
+            $(this).parent().text(text);
+        }
+    }
 });

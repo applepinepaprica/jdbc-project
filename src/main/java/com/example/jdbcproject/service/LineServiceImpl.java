@@ -18,6 +18,7 @@ public class LineServiceImpl implements LineService {
 		this.lineRepository = lineRepository;
 	}
 
+	@Override
 	public List<Line> getLines(String id, String value) {
 		List<Line> lines;
 
@@ -49,13 +50,20 @@ public class LineServiceImpl implements LineService {
 		return lines;
 	}
 
+	@Override
 	public void insertLine(Line line) {
 		lineRepository.insertLine(line);
 	}
 
+	@Override
 	public void deleteLines(List<Line> lines){
 		for (Line line: lines) {
 			lineRepository.deleteLine(line);
 		}
+	}
+
+	@Override
+	public void updateLine (Line line) {
+		lineRepository.updateLine(line);
 	}
 }
