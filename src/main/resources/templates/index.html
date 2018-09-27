@@ -27,17 +27,24 @@
 		</p>
 	</form>
 </div>
+<div class="container">
+		<p>
+			<input type="submit" id="delete_button" class="btn btn-primary" value="Delete checked" />
+		</p>
+</div>
 <div class="container" th:if="${not #lists.isEmpty(lines)}">
-	<table class="table table-hover">
+	<table id="lines" class="table table-hover">
 		<thead>
 			<tr>
+				<th scope="col"></th>
 				<th scope="col">Id</th>
 				<th scope="col">Value</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="line : ${lines}">
-				<th scope="row" th:text="${line.id}"></th>
+				<td><input type="checkbox" name="checked" value="true"></td>
+				<td scope="row" th:text="${line.id}" ></td>
 				<td th:text="${line.value}"></td>
 			</tr>
 		</tbody>
