@@ -6,7 +6,7 @@ import com.example.jdbcproject.repository.LineRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class LineServiceImpl implements LineService {
@@ -18,13 +18,28 @@ public class LineServiceImpl implements LineService {
 		this.lineRepository = lineRepository;
 	}
 
-	public List<Line> getLines(Integer id, String value) {
+	public List<Line> getLines(String id, String value) {
 		List<Line> lines;
 
     	/*Фильтр устроен примерно так, как в ЭК, т е если в запросе есть id,
     	то программа ищет строку с этим id, не обращая внимания на другие условия.*/
-    	if (id != null) {
-			lines = lineRepository.getLineById(id);
+		if (id != null && !id.isEmpty()) {
+			Set<Line> linesSet = new HashSet<>();
+			String[] array = id.split("[ ,]+");
+
+			for (String str : array) {
+				int i;
+
+				try {
+					i = Integer.parseInt(str);
+				}
+				catch (NumberFormatException e) {
+					//do nothing
+					break;
+				}
+				linesSet.addAll(lineRepository.getLineById(i));
+			}
+			lines = new ArrayList<>(linesSet);
 		} else if (value != null && !value.isEmpty()) {
 			lines = lineRepository.getLineByValue(value);
 		} else {

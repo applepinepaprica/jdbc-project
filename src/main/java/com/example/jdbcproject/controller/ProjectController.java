@@ -20,7 +20,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String home(@RequestParam(required = false)Integer id,
+	public String home(@RequestParam(required = false)String id,
 				@RequestParam(required = false) String value, 
 				Model model) {
 

@@ -4,6 +4,6 @@ import com.example.jdbcproject.model.Line;
 import java.util.List;
 
 public interface LineService {
-    List<Line> getLines(Integer id, String value);
+    List<Line> getLines(String id, String value);
     void insertLine(Line line);
 }

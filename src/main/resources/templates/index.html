@@ -8,7 +8,9 @@
 <div class="container">
 	<form action="#" th:action="@{/}" th:object="${searchLine}" method="get">
 		<p>
-			<input type="number" th:field="*{id}" class="form-control" placeholder="Id" maxlength="5000" />
+			<input type="text" th:field="*{id}" pattern="[0-9 ,]*"
+				   class="form-control" placeholder="Id" maxlength="5000" />
+			<small class="text-muted">Enter numbers separated by commas</small>
 		</p>
 		<p>
 			<input type="text" th:field="*{value}" class="form-control" placeholder="Value" maxlength="5000" />
