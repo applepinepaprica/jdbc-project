@@ -30,7 +30,7 @@ public class Line {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Line line = (Line) o;
-		return id == line.id;
+		return Objects.equals(id, line.id);
 	}
 
 	@Override
