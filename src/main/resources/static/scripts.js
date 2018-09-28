@@ -70,7 +70,6 @@ $(document).ready(function(){
 
     $('#add_line_button').click(function () {
         var line = {
-            id: '0',
             value: $("#line_input").val()
         };
 
