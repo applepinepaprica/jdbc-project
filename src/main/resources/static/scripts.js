@@ -68,7 +68,15 @@ $(document).ready(function(){
         }
     }
 
-    $('#add_line_button').click(function () {
+    $('#add_line_button').click(addLine);
+    $("#line_input").on("keyup", function (e) {
+            if (e.which === 13) {
+               addLine();
+            }
+        }
+    );
+
+    function addLine() {
         var line = {
             value: $("#line_input").val()
         };
@@ -81,11 +89,12 @@ $(document).ready(function(){
             dataType: 'json',
             timeout: 600000,
             success: function (data) {
-                console.log(data);
+                $('#input_container').append("<p>Added " + $("#line_input").val() + "</p>");
+                $("#line_input").val("");
             },
             error: function (e) {
                 alert('error');
             }
         });
-    });
+    }
 });
