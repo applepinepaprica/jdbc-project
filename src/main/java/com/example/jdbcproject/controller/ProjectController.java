@@ -38,9 +38,9 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = { "/add_line" }, method = RequestMethod.POST)
-	public @ResponseBody Line addLinePost(@RequestBody Line line, Model model) {
-		Line savedLine = lineService.insertLine(line);
-		return savedLine;
+	public @ResponseBody String addLinePost(@RequestBody Line line, Model model) {
+		lineService.insertLine(line);
+		return "{\"msg\":\"success\"}";
 	}
 
 	@RequestMapping(value = { "/delete_checked" }, method = RequestMethod.POST)

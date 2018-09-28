@@ -51,8 +51,8 @@ public class LineServiceImpl implements LineService {
 	}
 
 	@Override
-	public Line insertLine(Line line) {
-		return lineRepository.insertLine(line);
+	public void insertLine(Line line) {
+		lineRepository.insertLine(line);
 	}
 
 	@Override
