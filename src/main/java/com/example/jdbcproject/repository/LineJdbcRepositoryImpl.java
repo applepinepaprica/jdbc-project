@@ -50,8 +50,9 @@ public class LineJdbcRepositoryImpl implements LineRepository {
     }
 
     @Override
-    public void insertLine(Line line) {
+    public Line insertLine(Line line) {
         jdbcTemplate.update("INSERT INTO line(value) VALUES (?)", line.getValue());
+        return line;
     }
 
     @Override

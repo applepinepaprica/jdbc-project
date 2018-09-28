@@ -67,4 +67,26 @@ $(document).ready(function(){
             $(this).parent().text(text);
         }
     }
+
+    $('#add_line_button').click(function () {
+        var line = {
+            id: '0',
+            value: $("#line_input").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/add_line',
+            data: JSON.stringify(line),
+            dataType: 'json',
+            timeout: 600000,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (e) {
+                alert('error');
+            }
+        });
+    });
 });

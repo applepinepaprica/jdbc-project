@@ -3,8 +3,6 @@ package com.example.jdbcproject.controller;
 import com.example.jdbcproject.model.Line;
 import com.example.jdbcproject.service.LineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -40,9 +38,9 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = { "/add_line" }, method = RequestMethod.POST)
-	public String addLinePost(Line line, Model model) {
-		lineService.insertLine(line);
-		return "redirect:/";
+	public @ResponseBody Line addLinePost(@RequestBody Line line, Model model) {
+		Line savedLine = lineService.insertLine(line);
+		return savedLine;
 	}
 
 	@RequestMapping(value = { "/delete_checked" }, method = RequestMethod.POST)
