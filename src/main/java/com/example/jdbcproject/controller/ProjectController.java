@@ -46,14 +46,14 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = { "/delete_checked" }, method = RequestMethod.POST)
-	public ResponseEntity deleteLines(@RequestBody List<Line> lines, Model model) {
+	public @ResponseBody String deleteLines(@RequestBody List<Line> lines, Model model) {
 		lineService.deleteLines(lines);
-		return new ResponseEntity(HttpStatus.OK);
+		return "{\"msg\":\"success\"}";
 	}
 
 	@RequestMapping(value = { "/update_line" }, method = RequestMethod.POST)
-	public ResponseEntity updateLine(@RequestBody Line line, Model model) {
+	public @ResponseBody String updateLine(@RequestBody Line line, Model model) {
 		lineService.updateLine(line);
-		return new ResponseEntity(HttpStatus.OK);
+		return "{\"msg\":\"success\"}";
 	}
 }

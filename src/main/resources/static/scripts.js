@@ -41,7 +41,7 @@ $(document).ready(function(){
     }
 
     function onEnter(e) {
-        if (e.keyCode === 13) {
+        if (e.which === 13) {
             var text = $(this).val();
 
             var line = {
@@ -57,7 +57,6 @@ $(document).ready(function(){
                 dataType: 'json',
                 timeout: 600000,
                 success: function (data) {
-                    location.reload();
                 },
                 error: function (e) {
                     alert('error');
