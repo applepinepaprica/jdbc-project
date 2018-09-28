@@ -11,6 +11,7 @@
 * MySQL
 * Thymeleaf
 * Flyway
+* AJAX
 
 ### Запуск проекта:
 
